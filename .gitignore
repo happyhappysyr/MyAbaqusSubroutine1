@@ -4,6 +4,7 @@
 *.log
 *.msg
 *.odb
+*.odb_f
 *.prt
 *.rpy
 *.sim
