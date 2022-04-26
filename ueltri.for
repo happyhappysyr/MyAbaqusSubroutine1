@@ -25,7 +25,7 @@ C      Assiging the Material Coordinates from COORD
       E = PROPS(1)
       PR = PROPS(2)
       THICKNESS = PROPS(3)
-      AREA = PROPS(4)
+C      AREA = PROPS(4)
 C      Assiging the Material Coordinates from COORD
       X_I = COORDS(1,1)
       X_J = COORDS(2,1)
@@ -41,6 +41,8 @@ C
       GAMMA_I = X_M - X_J
       GAMMA_J = X_I - X_M
       GAMMA_M = X_J - X_I
+C
+      AREA = ( X_I*(Y_J - Y_M) + X_J*(Y_M - Y_I) + X_M*(Y_I - Y_J))/2
 
 C     Assembling B Matrix
       BMATRIX(1,1) = BETA_I/(2*AREA)
