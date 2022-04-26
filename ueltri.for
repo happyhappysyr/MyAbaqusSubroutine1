@@ -19,13 +19,19 @@ C      Checking for correct element types
       IF(NNODE.EQ.3) THEN
           WRITE(*,*) "ELEMENT HAS CORRECT NUMBER OF NODES (",NNODE,")"
         ELSE
-          WRITE(*,*) "ELEMENT HAS WRONG NUMBER OF NODES ",NNODE,")"
+          WRITE(*,*) "ELEMENT HAS WRONG NUMBER OF NODES (",NNODE,")"
         END IF
 C      Assiging the Material Coordinates from COORD
       E = PROPS(1)
       PR = PROPS(2)
       THICKNESS = PROPS(3)
 C      AREA = PROPS(4)
+      WRITE(*,*) COORDS(1,1)
+      WRITE(*,*) COORDS(2,1)
+      WRITE(*,*) COORDS(3,1)
+      WRITE(*,*) COORDS(1,2)
+      WRITE(*,*) COORDS(2,2)
+      WRITE(*,*) COORDS(3,2)
 C      Assiging the Material Coordinates from COORD
       X_I = COORDS(1,1)
       X_J = COORDS(2,1)
