@@ -21,6 +21,7 @@ C      Checking for correct element types
         ELSE
           WRITE(*,*) "ELEMENT HAS WRONG NUMBER OF NODES (",NNODE,")"
         END IF
+      WRITE(*,*)  "L args:",LFLAGS(1)
 C      Assiging the Material Coordinates from COORD
       E = PROPS(1)
       PR = PROPS(2)
@@ -49,6 +50,7 @@ C
       GAMMA_M = X_J - X_I
 C
       AREA = ( X_I*(Y_J - Y_M) + X_J*(Y_M - Y_I) + X_M*(Y_I - Y_J))/2
+      WRITE(*,*) "AREA OF ELEMENT:",AREA
 
 C     Assembling B Matrix
       BMATRIX(1,1) = BETA_I/(2*AREA)
@@ -85,6 +87,14 @@ C      MATRIX MULTIPLICATION FOR STIFFNESS MATRIX
       BTRANS = TRANSPOSE(BMATRIX)
 c      BTRANS = TRANSPOSE(BMATRIX)*(THICKNESS*AREA)
       AMATRX = MATMUL(MATMUL(BTRANS,DMATRIX),BMATRIX)
+
+      WRITE(*,*) "Length of A Matrix",SHAPE(AMATRX)
+      WRITE(*,*) "TYPE",KIND(SHAPE(AMATRX))
+      DO K1 = 1,6
+        DO K2 = 1,6
+         WRITE(*,*) "A matrix ",K1,K2,": ",AMATRX(K1,K2)
+        END DO
+      END DO
 
       RETURN
       END
